@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Dropable HTML Page</title>
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet" />
+      <script src = "https://code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js" type="text/javascript"></script>
+       <script type="text/javascript">
+         $(document).ready(function () {
+          
+              $("#Child").draggable();
+
+              $("#Main").droppable({ 
+                  accept: "#Child",
+                  drop:function(event, ui) 
+                  {
+                      $(this).addClass("MyCls").find("p").html("Done.....");    
+                  }
+              });
+              
+          });
+      </script>
+      <style type="text/css">
+         .MyCls{background-color:rgb(99, 13, 28)!important;color:#2595d6}
+         #Child{ 
+            width: 200px; 
+            height: 200px; 
+            padding: 10px; 
+            margin: 0px 5px 10px 0;
+             background: rgb(223, 12, 177);
+            border: 1px solid #DDDDDD;
+            color: #ffffff;         }
+         
+         #Main{ 
+            width: 250px;
+            height: 250px;
+            padding: 10px; 
+            margin: 10px; 
+              background:pink;
+            border: 1px solid Gray;
+            color: #14e08b;
+            font-weight: bold; 
+         }
+      </style>
+
+</head>
+<body>
+    <div id="Child" class = "ch">
+        <p>Hi ... Let's Go</p>
+     </div>
+     <hr/>
+     <div id="Main" class = "main">
+        <p>I m ready</p>
+     </div> 
+</body>
+</html>
